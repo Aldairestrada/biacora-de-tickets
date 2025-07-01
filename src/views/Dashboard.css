@@ -1,0 +1,78 @@
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #2c3e50;
+  color: white;
+  padding: 1.5rem;
+}
+
+.sidebar h2 {
+  margin-bottom: 1rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f4f6f8;
+}
+
+.stats-bar {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.task-table th,
+.task-table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.task-table th {
+  background-color: #f1f1f1;
+}
+
+.task-form {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.task-form input,
+.task-form select,
+.task-form textarea {
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.task-form button {
+  padding: 0.5rem 1rem;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
