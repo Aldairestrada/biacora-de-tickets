@@ -1,0 +1,98 @@
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    background-color: #f4f6f9;
+    min-height: 100vh;
+  }
+  
+  .reporte-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+  }
+  
+  .reporte-section {
+    margin-bottom: 2rem;
+  }
+  
+  .reporte-section h3 {
+    margin-bottom: 1rem;
+    color: #34495e;
+  }
+  
+  .reporte-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    font-weight: bold;
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+  }
+  
+  /* Colores por estado */
+  .estado-pendiente {
+    border-left: 6px solid #f39c12;
+  }
+  
+  .estado-proceso {
+    border-left: 6px solid #3498db;
+  }
+  
+  .estado-resuelto {
+    border-left: 6px solid #2ecc71;
+  }
+  
+  /* Colores por prioridad */
+  .prioridad-alta {
+    border-left: 6px solid #e74c3c;
+  }
+  
+  .prioridad-media {
+    border-left: 6px solid #f1c40f;
+  }
+  
+  .prioridad-baja {
+    border-left: 6px solid #27ae60;
+  }
+  
+  .reporte-categorias {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .reporte-categorias li {
+    background-color: white;
+    margin-bottom: 0.5rem;
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  
+  .btn-reporte {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 1rem;
+  }
+  
+  .btn-reporte:hover {
+    background-color: #1c5984;
+  }
+  
+  .select-ticket {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  

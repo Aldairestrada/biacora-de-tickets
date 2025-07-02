@@ -1,10 +1,18 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Dashboard from './views/Dashboard';
+import Reporte from './views/Reporte';
+import Configuracion from './views/Configuracion'; // 👈 importa tu nueva vista
+
 
 function App() {
   return (
-    <div>
-      <Dashboard />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/reportes" element={<Reporte />} />
+        <Route path="/configuracion" element={<Configuracion />} /> {/* ✅ nueva ruta */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 

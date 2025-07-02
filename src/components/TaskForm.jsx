@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import axios from 'axios';
 import { useTaskStore } from '../context/useTaskStore';
 
 function TaskForm() {
@@ -17,18 +18,29 @@ function TaskForm() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     if (form.title.trim()) {
-      addTask({ ...form, id: crypto.randomUUID() });
-      setForm({
-        title: '',
-        description: '',
-        priority: 'media',
-        category: '',
-        dueDate: '',
-        status: 'pendiente'
-      });
+      const newTask = { ...form, id: crypto.randomUUID() };
+
+      try {
+        const res = await axios.post('http://localhost/api_tickets/add_task.php', newTask, {
+          headers: { 'Content-Type': 'application/json' }
+        });
+
+        console.log(res.data); // respuesta del servidor
+        addTask(newTask);
+        setForm({
+          title: '',
+          description: '',
+          priority: 'media',
+          category: '',
+          dueDate: '',
+          status: 'pendiente'
+        });
+      } catch (error) {
+        console.error('Error al guardar la tarea:', error);
+      }
     }
   };
 

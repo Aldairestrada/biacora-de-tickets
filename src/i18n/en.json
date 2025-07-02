@@ -1,0 +1,47 @@
+{
+    "titulo": "Tickets",
+    "panel": "Dashboard",
+    "reportes": "Reports",
+    "configuracion": "Settings",
+    "guardar": "Save changes",
+    "nombre_usuario": "Username",
+    "idioma": "Language",
+    "notificaciones": "Email Notifications",
+    "habilitar": "Enable",
+
+
+ "pendientes": "Pending",
+  "en_proceso": "In Progress",
+  "resueltos": "Resolved",
+  "descripcion": "Description",
+  "prioridad": "Priority",
+  "fecha_limite": "Due Date",
+  "estado": "Status",
+
+
+  "reporte_general_titulo": "General Ticket Report",
+  "reporte_individual_titulo": "Ticket Report",
+  "generar_reporte_general": "Generate general report",
+  "selecciona_ticket": "Select a ticket to generate",
+  "por_estado": "By Status",
+  "por_prioridad": "By Priority",
+  "por_categoria": "By Category",
+  "pendientes": "Pending",
+  "en_proceso": "In Progress",
+  "resueltos": "Resolved",
+  "alta": "High",
+  "media": "Medium",
+  "baja": "Low",
+  "descripcion": "Description",
+  "titulo": "Title",
+  "categoria": "Category",
+  "fecha_limite": "Due Date",
+  "estado": "Status",
+  "prioridad": "Priority",
+  "firma": "Signature",
+  "generado_el": "Generated on",
+  "id": "ID",
+  "ticket_no_encontrado": "Ticket not found"
+  }
+  
+  

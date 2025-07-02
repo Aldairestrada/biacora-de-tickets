@@ -1,30 +1,40 @@
+import { useEffect } from 'react';
+import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 import TaskForm from '../components/TaskForm';
 import CategoryBadge from '../components/CategoryBadge';
 import { useTaskStore } from '../context/useTaskStore';
 import './Dashboard.css';
+import Sidebar from '../components/Sidebar';
 
 function Dashboard() {
-  const { tasks } = useTaskStore();
+  const { tasks, setTasks } = useTaskStore();
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    const fetchTasks = async () => {
+      try {
+        const res = await axios.get('http://localhost/api_tickets/get_tasks.php');
+        setTasks(res.data);
+      } catch (error) {
+        console.error('Error al obtener tareas:', error);
+      }
+    };
+    fetchTasks();
+  }, [setTasks]);
 
   const countByStatus = status =>
     tasks.filter(t => t.status === status).length;
 
   return (
     <div className="dashboard-container">
-      <aside className="sidebar">
-        <h2>Tickets</h2>
-        <ul>
-          <li>Panel</li>
-          <li>Reportes</li>
-          <li>Configuración</li>
-        </ul>
-      </aside>
+      <Sidebar />
 
       <main className="main-content">
         <header className="stats-bar">
-          <div><strong>Pendientes:</strong> {countByStatus('pendiente')}</div>
-          <div><strong>En proceso:</strong> {countByStatus('proceso')}</div>
-          <div><strong>Resueltos:</strong> {countByStatus('resuelto')}</div>
+          <div><strong>{t('pendientes')}:</strong> {countByStatus('pendiente')}</div>
+          <div><strong>{t('en_proceso')}:</strong> {countByStatus('proceso')}</div>
+          <div><strong>{t('resueltos')}:</strong> {countByStatus('resuelto')}</div>
         </header>
 
         <section className="form-section">
@@ -35,17 +45,17 @@ function Dashboard() {
           <table className="task-table">
             <thead>
               <tr>
-                <th>Descripción</th>
-                <th>Prioridad</th>
-                <th>Fecha Límite</th>
-                <th>Estado</th>
+                <th>{t('descripcion')}</th>
+                <th>{t('prioridad')}</th>
+                <th>{t('fecha_limite')}</th>
+                <th>{t('estado')}</th>
               </tr>
             </thead>
             <tbody>
               {tasks.map(t => (
                 <tr key={t.id}>
                   <td>
-                    <CategoryBadge category={t.category || 'Pendiente'} />
+                    <CategoryBadge category={t.category || 'General'} />
                     {t.title}
                   </td>
                   <td style={{
