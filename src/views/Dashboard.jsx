@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
 import axios from 'axios';
-import { useTranslation } from 'react-i18next';
 import TaskForm from '../components/TaskForm';
 import CategoryBadge from '../components/CategoryBadge';
 import { useTaskStore } from '../context/useTaskStore';
-import './Dashboard.css';
 import Sidebar from '../components/Sidebar';
+import { generarPDFTicket } from '../utils/pdfUtils';
+
+import './Dashboard.css';
 
 function Dashboard() {
   const { tasks, setTasks } = useTaskStore();
-  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -20,6 +20,7 @@ function Dashboard() {
         console.error('Error al obtener tareas:', error);
       }
     };
+
     fetchTasks();
   }, [setTasks]);
 
@@ -32,9 +33,9 @@ function Dashboard() {
 
       <main className="main-content">
         <header className="stats-bar">
-          <div><strong>{t('pendientes')}:</strong> {countByStatus('pendiente')}</div>
-          <div><strong>{t('en_proceso')}:</strong> {countByStatus('proceso')}</div>
-          <div><strong>{t('resueltos')}:</strong> {countByStatus('resuelto')}</div>
+          <div><strong>Pendientes:</strong> {countByStatus('pendiente')}</div>
+          <div><strong>En proceso:</strong> {countByStatus('proceso')}</div>
+          <div><strong>Resueltos:</strong> {countByStatus('resuelto')}</div>
         </header>
 
         <section className="form-section">
@@ -42,13 +43,15 @@ function Dashboard() {
         </section>
 
         <section className="table-section">
+          <h2>📋 Lista de Tickets</h2>
           <table className="task-table">
             <thead>
               <tr>
-                <th>{t('descripcion')}</th>
-                <th>{t('prioridad')}</th>
-                <th>{t('fecha_limite')}</th>
-                <th>{t('estado')}</th>
+                <th>Descripción</th>
+                <th>Prioridad</th>
+                <th>Fecha Límite</th>
+                <th>Estado</th>
+                <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -69,6 +72,14 @@ function Dashboard() {
                   </td>
                   <td>{t.dueDate || '—'}</td>
                   <td>{t.status}</td>
+                  <td>
+                    <button
+                      className="btn-ticket"
+                      onClick={() => generarPDFTicket(t)}
+                    >
+                      📄 Generar Ticket
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>

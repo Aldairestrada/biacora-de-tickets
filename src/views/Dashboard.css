@@ -78,3 +78,18 @@
   border: none;
   cursor: pointer;
 }
+
+.btn-ticket {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-ticket:hover {
+  background-color: #2980b9;
+}

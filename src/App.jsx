@@ -1,18 +1,28 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from './views/Dashboard';
 import Reporte from './views/Reporte';
-import Configuracion from './views/Configuracion'; // 👈 importa tu nueva vista
-
+import Configuracion from './views/Configuracion';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        draggable
+      />
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/reportes" element={<Reporte />} />
-        <Route path="/configuracion" element={<Configuracion />} /> {/* ✅ nueva ruta */}
+        <Route path="/configuracion" element={<Configuracion />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 
