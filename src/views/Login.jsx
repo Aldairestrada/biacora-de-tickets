@@ -31,27 +31,29 @@ function Login() {
   };
 
   return (
-    <div className="login-container">
-      <h2>Acceso Empresarial</h2>
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="Correo corporativo"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Ingresar</button>
-      </form>
+    <div className="login-wrapper"> {/* Nuevo contenedor para estilos exclusivos */}
+      <div className="login-container">
+        <h2>Acceso Empresarial</h2>
+        <form onSubmit={handleLogin}>
+          <input
+            type="email"
+            placeholder="Correo corporativo"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Contraseña"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button type="submit">Ingresar</button>
+        </form>
+      </div>
     </div>
   );
 }
- 
+
 export default Login;

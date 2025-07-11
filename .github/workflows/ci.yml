@@ -1,0 +1,28 @@
+name: CI semanal de componentes
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'  # ⏱ Ejecuta los lunes a las 6:00 AM (UTC)
+  workflow_dispatch:      # Permite ejecución manual
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧹 Clonar repositorio
+        uses: actions/checkout@v3
+
+      - name: 🧰 Configurar Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: 📦 Instalar dependencias
+        run: npm install
+
+      - name: 📊 Ejecutar pruebas
+        run: npm run test -- --watch=false
+
+      - name: ✅ Validar lint (opcional)
+        run: npm run lint

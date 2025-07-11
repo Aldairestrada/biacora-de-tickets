@@ -41,3 +41,10 @@
   background-color: #34495e;
   font-weight: bold;
 }
+
+.datetime {
+  margin-top: 330px;
+  font-size: 0.9em;
+  color: #e5e1e1;
+  text-align: center;
+}

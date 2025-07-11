@@ -10,4 +10,21 @@ Currently, two official plugins are available:
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# biacora-de-tickets
+
+# bitácora-de-tickets
+
+Sistema de seguimiento de tickets desarrollado en React con generación de reportes en PDF y soporte multilenguaje.
+
+---
+
+## 📦 Dependencias utilizadas
+
+| Librería             | Versión sugerida        | Uso principal                                                    | Enlace útil                             |
+|----------------------|-------------------------|------------------------------------------------------------------|------------------------------------------|
+| `react`              | `^18.x`                 | Base para crear componentes e interfaces web modernas           | [React Docs](https://reactjs.org/)       |
+| `vite`               | `^4.x`                  | Bundler ligero con HMR y servidor local rápido                   | [Vite Docs](https://vitejs.dev/)         |
+| `axios`              | `^1.x`                  | Cliente HTTP para peticiones al backend                          | [Axios Docs](https://axios-http.com/)    |
+| `jspdf`              | `^3.0.1`                | Generación de documentos PDF desde el navegador                  | [jsPDF](https://github.com/parallax/jsPDF) |
+| `jspdf-autotable`    | `^5.0.2`                | Creación de tablas dentro de PDFs generados con jsPDF           | [AutoTable](https://github.com/simonbengtsson/jsPDF-AutoTable) |
+| `react-i18next`      | `^11.x`                 | Soporte para multilenguaje y traducciones                       | [i18next](https://react.i18next.com/)    |
+
