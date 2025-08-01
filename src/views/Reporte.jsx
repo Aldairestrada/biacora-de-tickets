@@ -40,21 +40,7 @@ function Reporte() {
             📄 {t('generar_reporte_general')}
           </button>
 
-          <select
-            onChange={(e) => {
-              const ticket = tasks.find(t => t.id === e.target.value);
-              if (ticket) generarReporteIndividual(ticket, t);
-            }}
-            className="select-ticket"
-            defaultValue=""
-          >
-            <option value="" disabled>🔍 {t('selecciona_ticket')}</option>
-            {tasks.map(t => (
-              <option key={t.id} value={t.id}>
-                {t.title} ({t.id.slice(0, 6)})
-              </option>
-            ))}
-          </select>
+          
         </div>
 
         <section className="reporte-section">

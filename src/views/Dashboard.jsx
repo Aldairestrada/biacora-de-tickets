@@ -43,7 +43,7 @@ function Dashboard() {
         </section>
 
         <section className="table-section">
-          <h2>📋 Lista de Tickets</h2>
+          <h2> Lista de Tickets</h2>
           <table className="task-table">
             <thead>
               <tr>
@@ -77,7 +77,7 @@ function Dashboard() {
                       className="btn-ticket"
                       onClick={() => generarPDFTicket(t)}
                     >
-                      📄 Generar Ticket
+                      📄 Generar PDF 
                     </button>
                   </td>
                 </tr>

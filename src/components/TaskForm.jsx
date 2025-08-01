@@ -55,7 +55,7 @@ function TaskForm() {
         <option value="alta">Alta</option>
       </select>
       <input type="date" name="dueDate" value={form.dueDate} onChange={handleChange} />
-      <button type="submit">Agregar</button>
+      <button type="submit">Agregar Ticket</button>
     </form>
   );
 }

@@ -1,0 +1,42 @@
+.doc-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .doc-section {
+    margin-bottom: 2rem;
+  }
+  
+  .doc-card {
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+  }
+  
+  .doc-correct {
+    background-color: #e8f8ec;
+    border: 1px solid #48c774;
+  }
+  
+  .doc-incorrect {
+    background-color: #faeaea;
+    border: 1px solid #f14668;
+  }
+  
+  ul {
+    padding-left: 1.2rem;
+  }
+  
+  .btn-pdf {
+    padding: 0.6rem 1rem;
+    background-color: #3273dc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .btn-pdf:hover {
+    background-color: #2759a5;
+  }
+  

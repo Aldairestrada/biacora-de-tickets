@@ -43,15 +43,7 @@ function Configuracion() {
         <section className="config-section">
           <h3>{t('preferencias')}</h3>
           <form className="config-form" onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label>{t('nombre_usuario')}:</label>
-              <input
-                type="text"
-                value={nombre}
-                onChange={(e) => setNombre(e.target.value)}
-                placeholder="Ej. Aldair"
-              />
-            </div>
+          
 
             <div className="form-group">
               <label>{t('idioma')}:</label>
@@ -64,15 +56,7 @@ function Configuracion() {
               </select>
             </div>
 
-            <div className="form-group">
-              <label>{t('notificaciones')}:</label>
-              <input
-                type="checkbox"
-                checked={notificaciones}
-                onChange={(e) => setNotificaciones(e.target.checked)}
-              />{' '}
-              {t('habilitar')}
-            </div>
+            
 
             <button type="submit" className="config-btn">
               {t('guardar')}

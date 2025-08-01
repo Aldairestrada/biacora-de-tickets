@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from './views/Dashboard';
 import Reporte from './views/Reporte';
 import Configuracion from './views/Configuracion';
+import Documentacion from './views/Documentacion';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Login from './views/Login';
@@ -22,6 +23,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path='dashboard' element={<Dashboard />} />
         <Route path="/reportes" element={<Reporte />} />
+        <Route path="/documentacion" element={<Documentacion />} />
         <Route path="/configuracion" element={<Configuracion />} />
       </Routes>
     </Router>

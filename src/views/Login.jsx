@@ -20,6 +20,7 @@ function Login() {
 
       if (res.data.status === 'success') {
         localStorage.setItem('auth', 'true');
+        localStorage.setItem('userEmail', email); // ✅ Guardamos el correo
         navigate('/dashboard');
       } else {
         alert(res.data.message || 'Error en el inicio de sesión');
