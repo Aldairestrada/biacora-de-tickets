@@ -9,23 +9,44 @@ import { generarPDFTicket } from '../utils/pdfUtils';
 import './Dashboard.css';
 
 function Dashboard() {
-  const { tasks, setTasks } = useTaskStore();
-
+  const tasks = useTaskStore((state) => state.tasks);
+  const setTasks = useTaskStore((state) => state.setTasks);
+  const updateTaskStatus = useTaskStore((state) => state.updateTaskStatus);
   useEffect(() => {
     const fetchTasks = async () => {
       try {
         const res = await axios.get('http://localhost/api_tickets/get_tasks.php');
-        setTasks(res.data);
+
+        // Validamos que sea un array y clonamos cada tarea
+        const data = Array.isArray(res.data) ? res.data : [];
+        const clonedTasks = data.map(task => ({ ...task }));
+        setTasks(clonedTasks);
       } catch (error) {
         console.error('Error al obtener tareas:', error);
+        setTasks([]); // fallback seguro
       }
     };
 
     fetchTasks();
   }, [setTasks]);
 
+  const handleStatusChange = async (taskId, newStatus) => {
+    try {
+      await axios.post('http://localhost/api_tickets/update_status.php', {
+        id: taskId,
+        status: newStatus
+      });
+
+            updateTaskStatus(taskId, newStatus);
+    } catch (error) {
+      console.error('Error al actualizar el estado:', error);
+    }
+  };
+
   const countByStatus = status =>
-    tasks.filter(t => t.status === status).length;
+    Array.isArray(tasks)
+      ? tasks.filter(t => t.status === status).length
+      : 0;
 
   return (
     <div className="dashboard-container">
@@ -43,7 +64,7 @@ function Dashboard() {
         </section>
 
         <section className="table-section">
-          <h2> Lista de Tickets</h2>
+          <h2>Lista de Tickets</h2>
           <table className="task-table">
             <thead>
               <tr>
@@ -55,7 +76,7 @@ function Dashboard() {
               </tr>
             </thead>
             <tbody>
-              {tasks.map(t => (
+              {Array.isArray(tasks) && tasks.map(t => (
                 <tr key={t.id}>
                   <td>
                     <CategoryBadge category={t.category || 'General'} />
@@ -71,13 +92,22 @@ function Dashboard() {
                     {t.priority}
                   </td>
                   <td>{t.dueDate || '—'}</td>
-                  <td>{t.status}</td>
+                  <td>
+                    <select
+                      value={t.status}
+                      onChange={e => handleStatusChange(t.id, e.target.value)}
+                    >
+                      <option value="pendiente">Pendiente</option>
+                      <option value="proceso">En proceso</option>
+                      <option value="resuelto">Resuelto</option>
+                    </select>
+                  </td>
                   <td>
                     <button
                       className="btn-ticket"
                       onClick={() => generarPDFTicket(t)}
                     >
-                      📄 Generar PDF 
+                      📄 Generar PDF
                     </button>
                   </td>
                 </tr>

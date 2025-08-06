@@ -10,7 +10,7 @@ export function generarPDFTicket(task) {
   const doc = new jsPDF();
 
   // 🎨 Encabezado corporativo
-  doc.setFillColor(33, 150, 243); // Azul corporativo
+doc.setFillColor(30, 58, 138); // Azul oscuro
   doc.rect(0, 0, 210, 25, 'F');
 
   doc.setFontSize(18);
