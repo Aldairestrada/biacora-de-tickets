@@ -1,23 +1,13 @@
 {
-    "titulo": "Tickets",
-    "panel": "Dashboard",
-    "reportes": "Reports",
-    "configuracion": "Settings",
-    "guardar": "Save changes",
-    "nombre_usuario": "Username",
-    "idioma": "Language",
-    "notificaciones": "Email Notifications",
-    "habilitar": "Enable",
-
-
- "pendientes": "Pending",
-  "en_proceso": "In Progress",
-  "resueltos": "Resolved",
-  "descripcion": "Description",
-  "prioridad": "Priority",
-  "fecha_limite": "Due Date",
-  "estado": "Status",
-
+  "titulo": "Tickets",
+  "panel": "Dashboard",
+  "reportes": "Reports",
+  "configuracion": "Settings",
+  "guardar": "Save changes",
+  "nombre_usuario": "Username",
+  "idioma": "Language",
+  "notificaciones": "Email Notifications",
+  "habilitar": "Enable",
 
   "reporte_general_titulo": "General Ticket Report",
   "reporte_individual_titulo": "Ticket Report",
@@ -26,23 +16,102 @@
   "por_estado": "By Status",
   "por_prioridad": "By Priority",
   "por_categoria": "By Category",
-  "pendientes": "Pending",
-  "en_proceso": "In Progress",
-  "resueltos": "Resolved",
   "alta": "High",
   "media": "Medium",
   "baja": "Low",
-  "descripcion": "Description",
   "titulo": "Title",
   "categoria": "Category",
+    "en_proceso":"in progress",
+"pendientes":"earrings",
+"resueltos":"resolved",
+"preferencias":"Preferences",
   "fecha_limite": "Due Date",
   "estado": "Status",
   "prioridad": "Priority",
   "firma": "Signature",
   "generado_el": "Generated on",
   "id": "ID",
-  "ticket_no_encontrado": "Ticket not found"
-  
+  "ticket_no_encontrado": "Ticket not found",
+
+  "sidebar": {
+    "title": "Tickets",
+    "dashboard": "Dashboard",
+    "reports": "Reports",
+    "documentation": "Documentation",
+    "settings": "Settings",
+    "loggedInAs": "Logged in as"
+  },
+
+  "dashboard": {
+    "pending": "Pending",
+    "inProgress": "In Progress",
+    "resolved": "Resolved",
+    "ticketList": "Ticket List",
+    "description": "Description",
+    "priority": "Priority",
+    "dueDate": "Due Date",
+    "status": "Status",
+    "actions": "Actions",
+    "generatePDF": "Generate PDF",
+    "general": "General",
+    "priority_alta": "High",
+    "priority_media": "Medium",
+    "priority_baja": "Low"
+  },
+
+"documentation": {
+  "title": "Ticket Documentation Guide",
+  "objectiveTitle": "System Objective",
+  "objectiveDesc": "Register, manage, and resolve internal reports in an organized way.",
+  "correctExample": "Correct Example",
+  "correctTitle": "Error uploading file",
+  "correctDescription": "Uploading .png file shows error 500",
+  "correctCategory": "Upload",
+  "incorrectExample": "Incorrect Example",
+  "incorrectTitle": "Help",
+  "incorrectDescription": "Doesn't load",
+  "fieldsTitle": "Fields and Meanings",
+  "fieldTitleDesc": "Brief summary of the incident",
+  "fieldDescriptionDesc": "Clear and detailed explanation",
+  "fieldPriorityDesc": "Urgency level (High, Medium, Low)",
+  "fieldCategoryDesc": "Affected area (Login, Reports, Settings…)",
+  "downloadableGuide": "Downloadable Guide",
+  "downloadPDF": "Download PDF",
+  "pdfTitle": "System Usage Guide for Tickets",
+  "whatIs": "What is it?",
+  "whatIsDesc": "System to manage reports and incidents",
+  "ticketTypes": "Ticket Types",
+  "ticketTypesDesc": "Technical error, internal request, suggestion",
+  "flow": "Attention Flow",
+  "flowDesc": "Creation → Assignment → Resolution → Closure",
+  "fields": "Important Fields",
+  "fieldsDesc": "Title, description, priority, category",
+  "tableHeaderTopic": "Topic",
+  "tableHeaderDescription": "Description",
+  "category": "Category",
+"title": "Title",
+"title_error_uploading": "Error uploading file",
+"title_help": "Help",
+"category_upload": "Upload",
+"category_none": "—",
+"fieldTitleDesc": "Brief summary of the incident",
+"fieldCategoryDesc": "Affected area (Login, Reports, Settings…)"
+
+},
+
+
+  "taskForm": {
+    "title": "Title",
+    "category": "Category",
+    "description": "Description",
+    "priority_low": "Low",
+    "priority_medium": "Medium",
+    "priority_high": "High",
+    "submit": "Add Ticket",
+    "error": "Error saving the task:"
   }
-  
-  
+
+
+
+
+}

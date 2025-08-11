@@ -5,33 +5,26 @@ import './Configuracion.css';
 
 function Configuracion() {
   const { t, i18n } = useTranslation();
-
-  const [nombre, setNombre] = useState('');
   const [idioma, setIdioma] = useState('es');
-  const [notificaciones, setNotificaciones] = useState(false);
+  const [mensajeExito, setMensajeExito] = useState(false);
 
-  // Cargar configuración almacenada
   useEffect(() => {
     const savedConfig = JSON.parse(localStorage.getItem('configuracion'));
-    if (savedConfig) {
-      setNombre(savedConfig.nombre);
+    if (savedConfig?.idioma) {
       setIdioma(savedConfig.idioma);
-      setNotificaciones(savedConfig.notificaciones);
-      i18n.changeLanguage(savedConfig.idioma || 'es');
+      i18n.changeLanguage(savedConfig.idioma);
     }
   }, [i18n]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const config = {
-      nombre,
-      idioma,
-      notificaciones
-    };
+    const config = { idioma };
     localStorage.setItem('configuracion', JSON.stringify(config));
     i18n.changeLanguage(idioma);
     localStorage.setItem('lang', idioma);
-    alert(t('guardar') + ' ✅');
+
+    setMensajeExito(true);
+    setTimeout(() => setMensajeExito(false), 3000);
   };
 
   return (
@@ -43,8 +36,6 @@ function Configuracion() {
         <section className="config-section">
           <h3>{t('preferencias')}</h3>
           <form className="config-form" onSubmit={handleSubmit}>
-          
-
             <div className="form-group">
               <label>{t('idioma')}:</label>
               <select
@@ -56,13 +47,17 @@ function Configuracion() {
               </select>
             </div>
 
-            
-
             <button type="submit" className="config-btn">
               {t('guardar')}
             </button>
           </form>
         </section>
+
+        {mensajeExito && (
+          <div className="mensaje-flotante">
+            ✅ Traducción exitosa
+          </div>
+        )}
       </main>
     </div>
   );

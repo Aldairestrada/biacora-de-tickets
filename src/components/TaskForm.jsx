@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useTaskStore } from '../context/useTaskStore';
+import { useTranslation } from 'react-i18next';
 
 function TaskForm() {
+  const { t } = useTranslation();
+
   const [form, setForm] = useState({
     title: '',
     description: '',
@@ -28,7 +31,7 @@ function TaskForm() {
           headers: { 'Content-Type': 'application/json' }
         });
 
-        console.log(res.data); // respuesta del servidor
+        console.log(res.data);
         addTask(newTask);
         setForm({
           title: '',
@@ -39,23 +42,44 @@ function TaskForm() {
           status: 'pendiente'
         });
       } catch (error) {
-        console.error('Error al guardar la tarea:', error);
+        console.error(t('taskForm.error'), error);
       }
     }
   };
 
   return (
     <form onSubmit={handleSubmit} className="task-form">
-      <input name="title" value={form.title} onChange={handleChange} placeholder="Título" required />
-      <input name="category" value={form.category} onChange={handleChange} placeholder="Categoría" />
-      <textarea name="description" value={form.description} onChange={handleChange} placeholder="Descripción" />
+      <input
+        name="title"
+        value={form.title}
+        onChange={handleChange}
+        placeholder={t('taskForm.title')}
+        required
+      />
+      <input
+        name="category"
+        value={form.category}
+        onChange={handleChange}
+        placeholder={t('taskForm.category')}
+      />
+      <textarea
+        name="description"
+        value={form.description}
+        onChange={handleChange}
+        placeholder={t('taskForm.description')}
+      />
       <select name="priority" value={form.priority} onChange={handleChange}>
-        <option value="baja">Baja</option>
-        <option value="media">Media</option>
-        <option value="alta">Alta</option>
+        <option value="baja">{t('taskForm.priority_low')}</option>
+        <option value="media">{t('taskForm.priority_medium')}</option>
+        <option value="alta">{t('taskForm.priority_high')}</option>
       </select>
-      <input type="date" name="dueDate" value={form.dueDate} onChange={handleChange} />
-      <button type="submit">Agregar Ticket</button>
+      <input
+        type="date"
+        name="dueDate"
+        value={form.dueDate}
+        onChange={handleChange}
+      />
+      <button type="submit">{t('taskForm.submit')}</button>
     </form>
   );
 }

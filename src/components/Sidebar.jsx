@@ -50,17 +50,16 @@ function Sidebar() {
       </div>
       <h2>Tickets</h2>
       <ul>
-        <li><Link to="/dashboard">Panel</Link></li>
-        <li><Link to="/reportes">Reportes</Link></li>
-        <li><Link to="/documentacion">Documentación</Link></li>
-        <li><Link to="/Configuracion">Configuración</Link></li>
+        <li><Link to="/dashboard">{t('sidebar.dashboard')}</Link></li>
+  <li><Link to="/reportes">{t('sidebar.reports')}</Link></li>
+  <li><Link to="/documentacion">{t('sidebar.documentation')}</Link></li>
+  <li><Link to="/Configuracion">{t('sidebar.settings')}</Link></li>
       </ul>
       <div className="datetime">
         <p>{dateTime}</p>
       </div>
       <div className="user-email">
-        <p>Sesión iniciada como: <strong>{userEmail}</strong></p>
-      </div>
+  <p>{t('sidebar.loggedInAs')}: <strong>{userEmail}</strong></p>      </div>
     </aside>
   );
 }
