@@ -17,7 +17,6 @@ const Seguimiento = () => {
         console.log("Tickets cargados:", data);
         setTickets(data);
       })
-      .catch(err => console.error(t('seguimiento.loadError'), err));
   }, []);
 
   const handleSend = async () => {
@@ -43,7 +42,7 @@ const Seguimiento = () => {
       } else {
         setStatus(t('seguimiento.sendError'));
       }
-    } catch (err) {
+    } catch (_) {
       setStatus(t('seguimiento.connectionError'));
     }
   };
