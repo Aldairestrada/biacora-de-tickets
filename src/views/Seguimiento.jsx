@@ -42,7 +42,7 @@ const Seguimiento = () => {
       } else {
         setStatus(t('seguimiento.sendError'));
       }
-    } catch (_) {
+    } catch  {
       setStatus(t('seguimiento.connectionError'));
     }
   };
