@@ -51,6 +51,8 @@ function Sidebar() {
       <h2>Tickets</h2>
       <ul>
         <li><Link to="/dashboard">{t('sidebar.dashboard')}</Link></li>
+          <li><Link to="/Seguimiento">{t('sidebar.Seguimiento')}</Link></li>
+          <li><Link to="/HistorialCorreos">{t('sidebar.HistorialCorreos')}</Link></li>
   <li><Link to="/reportes">{t('sidebar.reports')}</Link></li>
   <li><Link to="/documentacion">{t('sidebar.documentation')}</Link></li>
   <li><Link to="/Configuracion">{t('sidebar.settings')}</Link></li>

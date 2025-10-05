@@ -36,6 +36,8 @@
   "sidebar": {
     "title": "Tickets",
     "dashboard": "Panel",
+    "Seguimiento": "Seguimiento",
+    "HistorialCorreos": "Historial de Seguimiento",
     "reports": "Reportes",
     "documentation": "Documentación",
     "settings": "Configuración",
@@ -100,6 +102,33 @@
     "priority_high": "Alta",
     "submit": "Agregar Ticket",
     "error": "Error al guardar la tarea:"
-  }
+  },
+
+  "seguimiento": {
+  "title": "Seguimiento de Tickets",
+  "noTickets": "No hay tickets disponibles.",
+  "emailPlaceholder": "Correo destinatario",
+  "sendButton": "Enviar Ticket",
+  "validationError": "❌ Debes seleccionar un ticket y escribir un correo.",
+  "success": "✅ Ticket enviado correctamente",
+  "sendError": "❌ Error al enviar el ticket",
+  "connectionError": "❌ Error de conexión con el servidor",
+  "loadError": "Error al cargar tickets:"
+},
+
+"emailHistory": {
+  "title": "Historial de Seguimiento",
+  "exportCSV": "Exportar CSV",
+  "exportPDF": "Exportar PDF",
+  "id": "ID",
+  "ticket": "Ticket",
+  "recipient": "Destinatario",
+  "date": "Fecha",
+  "noRecords": "No hay registros disponibles.",
+  "loadError": "Error al cargar historial:"
+}
+
+
+
 
 }

@@ -1,0 +1,96 @@
+
+
+/* Sidebar fijo */
+.sidebar {
+  width: 220px;
+  background-color: #2c3e50;
+  color: white;
+  padding: 1.5rem;
+  flex-shrink: 0;
+}
+
+/* Contenido principal ocupa el resto */
+.seguimiento-main {
+   margin-left: 240px; /* Mismo ancho que la .sidebar */
+  padding: 2rem;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+
+}
+
+/* Lista de tickets */
+.seguimiento-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.seguimiento-ticket {
+  background-color: white;
+  border-left: 6px solid #ccc;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.seguimiento-ticket:hover {
+  transform: scale(1.02);
+}
+
+.seguimiento-ticket.alta { border-color: #FF6B6B; }
+.seguimiento-ticket.media { border-color: #FFA500; }
+.seguimiento-ticket.baja { border-color: #4CAF50; }
+
+/* Vista previa del ticket */
+.seguimiento-preview {
+  background-color: #ffffff;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Formulario de envío */
+.seguimiento-formulario {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.seguimiento-formulario input {
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  border-radius: 25px;
+  border: 1.5px solid #2c3e50;
+  background-color: #e3e7ec;
+  flex: 1;
+  min-width: 250px;
+}
+
+.seguimiento-formulario button {
+  padding: 0.5rem 1rem;
+  background-color: #254357f9;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+
+.seguimiento-formulario button:hover {
+  background-color: #213d50;
+}
+
+/* Mensaje de estado */
+.seguimiento-status {
+  font-weight: bold;
+  margin-top: 0.5rem;
+  color: #2c3e50;
+}

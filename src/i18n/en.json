@@ -21,9 +21,9 @@
   "baja": "Low",
   "titulo": "Title",
   "categoria": "Category",
-    "en_proceso":"in progress",
-"pendientes":"earrings",
-"resueltos":"resolved",
+    "en_proceso":"In progress",
+"pendientes":"Pending",
+"resueltos":"Resolved",
 "preferencias":"Preferences",
   "fecha_limite": "Due Date",
   "estado": "Status",
@@ -36,6 +36,8 @@
   "sidebar": {
     "title": "Tickets",
     "dashboard": "Dashboard",
+    "Seguimiento": "Follow-up",
+        "HistorialCorreos": "Follow-up History",
     "reports": "Reports",
     "documentation": "Documentation",
     "settings": "Settings",
@@ -109,7 +111,34 @@
     "priority_high": "High",
     "submit": "Add Ticket",
     "error": "Error saving the task:"
-  }
+  },
+
+ "seguimiento": {
+  "title": "Ticket Follow-up",
+  "noTickets": "No tickets available.",
+  "emailPlaceholder": "Recipient email",
+  "sendButton": "Send Ticket",
+  "validationError": "❌ You must select a ticket and enter an email.",
+  "success": "✅ Ticket sent successfully",
+  "sendError": "❌ Error sending the ticket",
+  "connectionError": "❌ Server connection error",
+  "loadError": "Error loading tickets:"
+},
+
+"emailHistory": {
+  "title": "Follow-up History",
+  "exportCSV": "Export CSV",
+  "exportPDF": "Export PDF",
+  "id": "ID",
+  "ticket": "Ticket",
+  "recipient": "Recipient",
+  "date": "Date",
+  "noRecords": "No records available.",
+  "loadError": "Error loading history:"
+}
+
+
+
 
 
 
