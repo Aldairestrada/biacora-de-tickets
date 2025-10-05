@@ -11,7 +11,7 @@ import Login from './views/Login';
 
 function App() {
   return (
-    <Router>
+<Router basename="/biacora-de-tickets">
       <ToastContainer
         position="top-right"
         autoClose={3000}
