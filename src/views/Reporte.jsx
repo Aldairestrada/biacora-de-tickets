@@ -3,10 +3,7 @@ import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import Sidebar from '../components/Sidebar';
 import './Reporte.css';
-import {
-  generarReporteGeneral,
-  generarReporteIndividual
-} from '../utils/usePDFReport';
+import { generarReporteGeneral} from '../utils/usePDFReport';
 
 function Reporte() {
   const [tasks, setTasks] = useState([]);
