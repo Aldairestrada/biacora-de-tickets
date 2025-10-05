@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main  # cada push en main hará deploy
+permissions:
+  contents: write  # 👈 necesario para publicar en gh-pages
 
 jobs:
   build:
