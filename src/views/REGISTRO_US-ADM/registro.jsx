@@ -1,37 +1,32 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './Login.css';
+import { useNavigate } from 'react-router-dom';
+import './Registro.css';
 
-function Login() {
+function Registro() {
+  const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [tipo, setTipo] = useState('usuario');
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleRegistro = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
+    formData.append('nombre', nombre);
     formData.append('email', email);
     formData.append('password', password);
     formData.append('tipo', tipo);
 
     try {
-      const res = await axios.post('http://localhost/api_tickets/login.php', formData);
+      const res = await axios.post('http://localhost/api_tickets/registro.php', formData);
 
       if (res.data.status === 'success') {
-        localStorage.setItem('auth', 'true');
-        localStorage.setItem('userEmail', email);
-        localStorage.setItem('userTipo', tipo);
-
-        if (tipo === 'admin') {
-          navigate('/admin_dashboard');
-        } else {
-          navigate('/dashboard');
-        }
+        alert('Registro exitoso');
+        navigate('/');
       } else {
-        alert(res.data.message || 'Error en el inicio de sesión');
+        alert(res.data.message || 'Error en el registro');
       }
     } catch (err) {
       console.error(err);
@@ -40,10 +35,17 @@ function Login() {
   };
 
   return (
-    <div className="login-wrapper">
-      <div className="login-container">
-        <h2>Acceso al Sistema de Tickets</h2>
-        <form onSubmit={handleLogin}>
+    <div className="registro-wrapper">
+      <div className="registro-container">
+        <h2>Registro de Usuario</h2>
+        <form onSubmit={handleRegistro}>
+          <input
+            type="text"
+            placeholder="Nombre completo"
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
+            required
+          />
           <input
             type="email"
             placeholder="Correo electrónico"
@@ -52,7 +54,7 @@ function Login() {
             required
           />
           <input
-            type="contraseña"
+            type="password"
             placeholder="Contraseña"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -62,17 +64,11 @@ function Login() {
             <option value="usuario">Usuario</option>
             <option value="admin">Administrador</option>
           </select>
-          <button type="submit">Ingresar</button>
+          <button type="submit">Registrarse</button>
         </form>
-
-        {/* 🔁 Botón para ir a la pantalla de registro */}
-        <div className="register-link">
-          <p>¿No tienes cuenta?</p>
-          <button onClick={() => navigate('/registro')}>Registrarse</button>
-        </div>
       </div>
     </div>
   );
 }
 
-export default Login;
+export default Registro;

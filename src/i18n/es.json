@@ -44,6 +44,17 @@
     "loggedInAs": "Sesión iniciada como"
   },
 
+  "sidebar_admin": {
+    "title": "Tickets",
+    "dashboard": "Panel",
+    "Seguimiento": "Seguimiento",
+    "HistorialCorreos": "Historial de Seguimiento",
+    "reports": "Reportes",
+    "documentation": "Documentación",
+    "settings": "Configuración",
+    "loggedInAs": "Sesión iniciada como"
+  },
+
   "dashboard": {
     "pending": "Pendientes",
     "inProgress": "En proceso",
