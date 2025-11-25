@@ -1,6 +1,9 @@
 .dashboard-container {
   display: flex;
-  height: 100vh;
+  flex-direction: row;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
   font-family: 'Segoe UI', sans-serif;
 }
 
@@ -9,6 +12,11 @@
   background-color: #2c3e50;
   color: white;
   padding: 1.5rem;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
 .sidebar h2 {
@@ -26,35 +34,18 @@
 }
 
 .main-content {
-  margin-left: 240px; /* Mismo ancho que la .sidebar */
+  flex: 1;
+  min-height: 100vh;
   padding: 2rem;
   background-color: #f9f9f9;
-  min-height: 100vh;
+  box-sizing: border-box;
+  margin-left: 220px;
 }
-
 
 .stats-bar {
   display: flex;
   gap: 2rem;
   margin-bottom: 2rem;
-}
-
-.task-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.task-table th,
-.task-table td {
-  padding: 0.75rem 1rem;
-  border: 1px solid #ddd;
-  text-align: left;
-}
-
-.task-table th {
-  background-color: #f1f1f1;
 }
 
 .task-form {
@@ -69,10 +60,10 @@
 .task-form textarea {
   padding: 0.5rem;
   font-size: 0.9rem;
-    border-radius: 25px;
-border-color: #2c3e50;
-border-width: 1.5px;
-background-color: #e3e7ec;
+  border-radius: 25px;
+  border-color: #2c3e50;
+  border-width: 1.5px;
+  background-color: #e3e7ec;
 }
 
 .task-form button {
@@ -97,4 +88,110 @@ background-color: #e3e7ec;
 
 .btn-ticket:hover {
   background-color: #213d50;
+}
+
+.map-section {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+/* Tabla desplazable */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  min-width: 600px;
+}
+
+.task-table th,
+.task-table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.task-table th {
+  background-color: #f1f1f1;
+  white-space: nowrap;
+}
+
+.task-table td {
+  word-wrap: break-word;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .stats-bar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .task-form {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .task-form input,
+  .task-form select,
+  .task-form textarea {
+    width: 100%;
+    font-size: 0.85rem;
+    padding: 0.4rem;
+  }
+
+  .task-form button {
+    width: 100%;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.75rem;
+  }
+
+  .btn-ticket {
+    width: 100%;
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  .map-section {
+    padding: 1rem 0;
+    font-size: 0.85rem;
+  }
+
+  .task-table {
+    font-size: 0.75rem;
+    min-width: 600px;
+  }
+
+  .task-table th,
+  .task-table td {
+    padding: 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  .task-table td {
+    max-width: 120px;
+  }
+}
+
+.with-sidebar {
+  margin-left: 220px;
+}
+
+.full-width {
+  margin-left: 0 !important;
+  width: 100vw;
 }

@@ -113,17 +113,20 @@
     "error": "Error saving the task:"
   },
 
- "seguimiento": {
-  "title": "Ticket Follow-up",
-  "noTickets": "No tickets available.",
-  "emailPlaceholder": "Recipient email",
-  "sendButton": "Send Ticket",
-  "validationError": "❌ You must select a ticket and enter an email.",
+"seguimiento": {
+  "title": "Ticket Tracking",
+  "emailLabel": "Email address",
+  "selectTicket": "Ticket selection",
+  "emailPlaceholder": "Enter recipient email",
+  "ticketLabel": "Select a ticket",
+  "selectPlaceholder": "Choose a ticket...",
+  "sendButton": "Send ticket",
+  "validationError": "You must enter an email and select a ticket",
   "success": "✅ Ticket sent successfully",
   "sendError": "❌ Error sending the ticket",
-  "connectionError": "❌ Server connection error",
-  "loadError": "Error loading tickets:"
+  "connectionError": "❌ Unable to connect to the server"
 },
+
 
 "emailHistory": {
   "title": "Follow-up History",
@@ -135,9 +138,23 @@
   "date": "Date",
   "noRecords": "No records available.",
   "loadError": "Error loading history:"
+},
+
+
+"admin": {
+  "sectionTitle": "Administration",
+  "openModal": "Add new administrator",
+  "modalTitle": "Administrator registration",
+  "nameLabel": "Full name:",
+  "emailLabel": "Email address:",
+  "passwordLabel": "Password:",
+  "submit": "Register",
+  "cancel": "Cancel",
+  "successMessage": "✅ Administrator registered successfully",
+  "errorRegister": "❌ Error registering administrator",
+  "connectionError": "❌ Unable to connect to the server",
+  "translationSuccess": "✅ Translation applied successfully"
 }
-
-
 
 
 

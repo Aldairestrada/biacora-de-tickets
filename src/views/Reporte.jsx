@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
-import Sidebar from '../components/Sidebar';
+import Sidebar from '../components/Sidebar_admin';
 import './Reporte.css';
 import { generarReporteGeneral} from '../utils/usePDFReport';
 

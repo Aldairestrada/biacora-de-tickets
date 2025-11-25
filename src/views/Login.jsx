@@ -6,7 +6,6 @@ import './Login.css';
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [tipo, setTipo] = useState('usuario');
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -15,12 +14,13 @@ function Login() {
     const formData = new FormData();
     formData.append('email', email);
     formData.append('password', password);
-    formData.append('tipo', tipo);
 
     try {
       const res = await axios.post('http://localhost/api_tickets/login.php', formData);
 
       if (res.data.status === 'success') {
+        const tipo = res.data.tipo; // ✅ El backend devuelve el tipo de usuario
+
         localStorage.setItem('auth', 'true');
         localStorage.setItem('userEmail', email);
         localStorage.setItem('userTipo', tipo);
@@ -52,20 +52,15 @@ function Login() {
             required
           />
           <input
-            type="contraseña"
+            type="password"
             placeholder="Contraseña"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <select value={tipo} onChange={(e) => setTipo(e.target.value)} required>
-            <option value="usuario">Usuario</option>
-            <option value="admin">Administrador</option>
-          </select>
           <button type="submit">Ingresar</button>
         </form>
 
-        {/* 🔁 Botón para ir a la pantalla de registro */}
         <div className="register-link">
           <p>¿No tienes cuenta?</p>
           <button onClick={() => navigate('/registro')}>Registrarse</button>

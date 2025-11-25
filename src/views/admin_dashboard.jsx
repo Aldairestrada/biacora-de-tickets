@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import TaskForm from '../components/TaskForm';
 import CategoryBadge from '../components/CategoryBadge';
 import { useTaskStore } from '../context/useTaskStore';
 import Sidebar from '../components/Sidebar_admin';
 import { generarPDFTicket } from '../utils/pdfUtils';
+import MapView from '../components/MapView.jsx';
 import { useTranslation } from 'react-i18next';
 
 import './Dashboard.css';
@@ -14,6 +15,10 @@ function Dashboard() {
   const tasks = useTaskStore((state) => state.tasks);
   const setTasks = useTaskStore((state) => state.setTasks);
   const updateTaskStatus = useTaskStore((state) => state.updateTaskStatus);
+
+  const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth > 768);
+
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -30,6 +35,14 @@ function Dashboard() {
 
     fetchTasks();
   }, [setTasks]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSidebarOpen(window.innerWidth > 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleStatusChange = async (taskId, newStatus) => {
     try {
@@ -50,18 +63,20 @@ function Dashboard() {
 
   return (
     <div className="dashboard-container">
-      <Sidebar />
+      {window.innerWidth <= 768 && (
+        <button className="toggle-button" onClick={toggleSidebar}>
+          ☰
+        </button>
+      )}
 
-      <main className="main-content">
+      {isSidebarOpen && <Sidebar />}
+
+      <main className={`main-content ${isSidebarOpen ? 'with-sidebar' : 'full-width'}`}>
         <header className="stats-bar">
           <div><strong>{t('dashboard.pending')}:</strong> {countByStatus('pendiente')}</div>
           <div><strong>{t('dashboard.inProgress')}:</strong> {countByStatus('proceso')}</div>
           <div><strong>{t('dashboard.resolved')}:</strong> {countByStatus('resuelto')}</div>
         </header>
-
-        <section className="form-section">
-          <TaskForm />
-        </section>
 
         <section className="table-section">
           <h2>{t('dashboard.ticketList')}</h2>
@@ -114,6 +129,15 @@ function Dashboard() {
               ))}
             </tbody>
           </table>
+
+          {tasks.length > 0 && (
+            <div className="map-section">
+              <MapView
+                lat={tasks[0].lat || 20.57666}
+                lng={tasks[0].lng || -101.19700}
+              />
+            </div>
+          )}
         </section>
       </main>
     </div>

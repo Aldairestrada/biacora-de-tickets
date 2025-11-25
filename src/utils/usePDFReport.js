@@ -14,7 +14,7 @@ export function generarReporteGeneral(tickets = [], t) {
 
   // 🧾 Tabla principal con todos los tickets
   const rows = tickets.map(ticket => [
-    ticket.id.slice(0, 6),
+  String(ticket.id || '').slice(0, 6),
     ticket.title,
     ticket.priority,
     ticket.status,

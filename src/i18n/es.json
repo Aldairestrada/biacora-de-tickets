@@ -41,6 +41,7 @@
     "reports": "Reportes",
     "documentation": "Documentación",
     "settings": "Configuración",
+        "logout": "Cerrar sesión",
     "loggedInAs": "Sesión iniciada como"
   },
 
@@ -52,6 +53,7 @@
     "reports": "Reportes",
     "documentation": "Documentación",
     "settings": "Configuración",
+    "logout": "Cerrar sesión",
     "loggedInAs": "Sesión iniciada como"
   },
 
@@ -116,15 +118,18 @@
   },
 
   "seguimiento": {
+    
   "title": "Seguimiento de Tickets",
-  "noTickets": "No hay tickets disponibles.",
-  "emailPlaceholder": "Correo destinatario",
-  "sendButton": "Enviar Ticket",
-  "validationError": "❌ Debes seleccionar un ticket y escribir un correo.",
-  "success": "✅ Ticket enviado correctamente",
-  "sendError": "❌ Error al enviar el ticket",
-  "connectionError": "❌ Error de conexión con el servidor",
-  "loadError": "Error al cargar tickets:"
+    "emailLabel": "Correo electrónico",
+    "selectTicket":"Seleccion de ticket",
+    "emailPlaceholder": "Escribe el correo destino",
+    "ticketLabel": "Selecciona un ticket",
+    "selectPlaceholder": "Selecciona un ticket...",
+    "sendButton": "Enviar ticket",
+    "validationError": "Debes ingresar un correo y seleccionar un ticket",
+    "success": "✅ Ticket enviado correctamente",
+    "sendError": "❌ Error al enviar el ticket",
+    "connectionError": "❌ No se pudo conectar con el servidor"
 },
 
 "emailHistory": {
@@ -137,7 +142,23 @@
   "date": "Fecha",
   "noRecords": "No hay registros disponibles.",
   "loadError": "Error al cargar historial:"
+},
+
+"admin": {
+  "sectionTitle": "Administración",
+  "openModal": "Agregar nuevo administrador",
+  "modalTitle": "Registro de administrador",
+  "nameLabel": "Nombre completo:",
+  "emailLabel": "Correo electrónico:",
+  "passwordLabel": "Contraseña:",
+  "submit": "Registrar",
+  "cancel": "Cancelar",
+  "successMessage": "✅ Administrador registrado exitosamente",
+  "errorRegister": "❌ Error al registrar administrador",
+  "connectionError": "❌ No se pudo conectar con el servidor",
+  "translationSuccess": "✅ Traducción exitosa"
 }
+
 
 
 

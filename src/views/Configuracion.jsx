@@ -44,6 +44,8 @@ function Configuracion() {
               >
                 <option value="es">Español</option>
                 <option value="en">English</option>
+                <option value="ja">japones</option>
+
               </select>
             </div>
 

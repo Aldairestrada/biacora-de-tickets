@@ -1,0 +1,40 @@
+{
+  "name": "Sistema de Tickets Educativo",
+  "short_name": "Tickets",
+  "description": "App web para registrar, gestionar y visualizar tickets técnicos con roles diferenciados.",
+  "lang": "es-MX",
+  "start_url": "/login",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f4f4",
+  "theme_color": "#1976d2",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/dashboard.png",
+      "type": "image/png",
+      "sizes": "1280x720",
+      "label": "Panel de administración"
+    },
+    {
+      "src": "/screenshots/ticket-form.png",
+      "type": "image/png",
+      "sizes": "1280x720",
+      "label": "Formulario modal para nuevo ticket"
+    }
+  ],
+  "categories": ["productividad", "educación", "herramientas"],
+  "scope": "/",
+  "id": "/manifest.json"
+}

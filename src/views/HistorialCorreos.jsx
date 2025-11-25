@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/Sidebar_admin";
 import "./HistorialCorreos.css";
 import { useTranslation } from "react-i18next";
 

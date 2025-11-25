@@ -7,7 +7,6 @@ function Registro() {
   const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [tipo, setTipo] = useState('usuario');
   const navigate = useNavigate();
 
   const handleRegistro = async (e) => {
@@ -17,14 +16,14 @@ function Registro() {
     formData.append('nombre', nombre);
     formData.append('email', email);
     formData.append('password', password);
-    formData.append('tipo', tipo);
+    formData.append('tipo', 'usuario'); // 🔒 Fijo como "usuario"
 
     try {
       const res = await axios.post('http://localhost/api_tickets/registro.php', formData);
 
       if (res.data.status === 'success') {
         alert('Registro exitoso');
-        navigate('/');
+        navigate('/login');
       } else {
         alert(res.data.message || 'Error en el registro');
       }
@@ -60,10 +59,6 @@ function Registro() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <select value={tipo} onChange={(e) => setTipo(e.target.value)} required>
-            <option value="usuario">Usuario</option>
-            <option value="admin">Administrador</option>
-          </select>
           <button type="submit">Registrarse</button>
         </form>
       </div>

@@ -17,7 +17,7 @@ Sistema de seguimiento de tickets desarrollado en React con generación de repor
 
 ---
 
-## 📦 Dependencias utilizadas
+##  Dependencias utilizadas
 
 | Librería             | Versión sugerida        | Uso principal                                                    | Enlace útil                             |
 |----------------------|-------------------------|------------------------------------------------------------------|------------------------------------------|
