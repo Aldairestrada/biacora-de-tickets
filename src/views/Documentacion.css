@@ -1,42 +1,144 @@
+/* ====== Layout general ====== */
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+/* ====== Contenido principal ====== */
+.main-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.main-content.full-width {
+  margin-left: 0;
+}
+
+.main-content.with-sidebar {
+  margin-left: 250px; /* ajusta según el ancho real del sidebar */
+}
+
+/* ====== Botón toggle Sidebar ====== */
+.toggle-button {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ====== Documentación ====== */
 .doc-title {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.doc-section {
+  margin-bottom: 2rem;
+}
+
+.doc-card {
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.doc-correct {
+  background-color: #e8f8ec;
+  border: 1px solid #48c774;
+}
+
+.doc-incorrect {
+  background-color: #faeaea;
+  border: 1px solid #f14668;
+}
+
+ul {
+  padding-left: 1.2rem;
+}
+
+/* ====== Botón PDF ====== */
+.btn-pdf {
+  padding: 0.6rem 1rem;
+  background-color: #3273dc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-pdf:hover {
+  background-color: #2759a5;
+}
+
+/* ====== Responsivo ====== */
+@media (max-width: 1024px) {
+  .doc-title {
+    font-size: 1.6rem;
   }
-  
-  .doc-section {
-    margin-bottom: 2rem;
-  }
-  
+
   .doc-card {
-    padding: 1rem;
-    border-radius: 8px;
+    font-size: 0.9rem;
+  }
+
+  .btn-pdf {
+    padding: 0.5rem 0.9rem;
     font-size: 0.95rem;
   }
-  
-  .doc-correct {
-    background-color: #e8f8ec;
-    border: 1px solid #48c774;
+}
+
+@media (max-width: 768px) {
+  /* Sidebar se oculta y el contenido ocupa todo el ancho */
+  .main-content.with-sidebar {
+    margin-left: 0;
   }
-  
-  .doc-incorrect {
-    background-color: #faeaea;
-    border: 1px solid #f14668;
+
+  .doc-title {
+    font-size: 1.4rem;
+    text-align: center;
   }
-  
+
+  .doc-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .doc-card {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+
   ul {
-    padding-left: 1.2rem;
+    padding-left: 1rem;
   }
-  
+
   .btn-pdf {
-    padding: 0.6rem 1rem;
-    background-color: #3273dc;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 1rem;
+    text-align: center;
   }
-  
-  .btn-pdf:hover {
-    background-color: #2759a5;
+}
+
+@media (max-width: 480px) {
+  .doc-title {
+    font-size: 1.2rem;
   }
-  
+
+  .doc-card {
+    padding: 0.6rem;
+    font-size: 0.85rem;
+  }
+
+  .btn-pdf {
+    font-size: 0.95rem;
+    padding: 0.6rem;
+  }
+}

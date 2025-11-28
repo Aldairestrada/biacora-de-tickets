@@ -80,55 +80,57 @@ function Dashboard() {
 
         <section className="table-section">
           <h2>{t('dashboard.ticketList')}</h2>
-          <table className="task-table">
-            <thead>
-              <tr>
-                <th>{t('dashboard.description')}</th>
-                <th>{t('dashboard.priority')}</th>
-                <th>{t('dashboard.dueDate')}</th>
-                <th>{t('dashboard.status')}</th>
-                <th>{t('dashboard.actions')}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {Array.isArray(tasks) && tasks.map(task => (
-                <tr key={task.id}>
-                  <td>
-                    <CategoryBadge category={task.category || t('dashboard.general')} />
-                    {task.title}
-                  </td>
-                  <td style={{
-                    color:
-                      task.priority === 'alta' ? '#e74c3c' :
-                      task.priority === 'media' ? '#f39c12' :
-                      '#27ae60',
-                    fontWeight: 'bold'
-                  }}>
-                    {t('dashboard.priority_' + task.priority)}
-                  </td>
-                  <td>{task.dueDate || '—'}</td>
-                  <td>
-                    <select
-                      value={task.status}
-                      onChange={e => handleStatusChange(task.id, e.target.value)}
-                    >
-                      <option value="pendiente">{t('dashboard.pending')}</option>
-                      <option value="proceso">{t('dashboard.inProgress')}</option>
-                      <option value="resuelto">{t('dashboard.resolved')}</option>
-                    </select>
-                  </td>
-                  <td>
-                    <button
-                      className="btn-ticket"
-                      onClick={() => generarPDFTicket(task)}
-                    >
-                      📄 {t('dashboard.generatePDF')}
-                    </button>
-                  </td>
+          <div className="table-responsive">
+            <table className="task-table">
+              <thead>
+                <tr>
+                  <th>{t('dashboard.description')}</th>
+                  <th>{t('dashboard.priority')}</th>
+                  <th>{t('dashboard.dueDate')}</th>
+                  <th>{t('dashboard.status')}</th>
+                  <th>{t('dashboard.actions')}</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {Array.isArray(tasks) && tasks.map(task => (
+                  <tr key={task.id}>
+                    <td>
+                      <CategoryBadge category={task.category || t('dashboard.general')} />
+                      {task.title}
+                    </td>
+                    <td style={{
+                      color:
+                        task.priority === 'alta' ? '#e74c3c' :
+                        task.priority === 'media' ? '#f39c12' :
+                        '#27ae60',
+                      fontWeight: 'bold'
+                    }}>
+                      {t('dashboard.priority_' + task.priority)}
+                    </td>
+                    <td>{task.dueDate || '—'}</td>
+                    <td>
+                      <select
+                        value={task.status}
+                        onChange={e => handleStatusChange(task.id, e.target.value)}
+                      >
+                        <option value="pendiente">{t('dashboard.pending')}</option>
+                        <option value="proceso">{t('dashboard.inProgress')}</option>
+                        <option value="resuelto">{t('dashboard.resolved')}</option>
+                      </select>
+                    </td>
+                    <td>
+                      <button
+                        className="btn-ticket"
+                        onClick={() => generarPDFTicket(task)}
+                      >
+                        📄 {t('dashboard.generatePDF')}
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
           {tasks.length > 0 && (
             <div className="map-section">

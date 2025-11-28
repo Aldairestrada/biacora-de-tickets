@@ -195,3 +195,99 @@
   margin-left: 0 !important;
   width: 100vw;
 }
+
+
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.main-content.full-width {
+  margin-left: 0;
+}
+
+.main-content.with-sidebar {
+  margin-left: 250px; /* ajusta según ancho del sidebar */
+}
+
+.stats-bar {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 16px;
+  font-size: 1rem;
+}
+
+.table-section h2 {
+  margin-bottom: 12px;
+}
+
+/* Contenedor que permite scroll horizontal */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px; /* fuerza scroll en pantallas pequeñas */
+}
+
+.task-table th,
+.task-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap;
+}
+
+.btn-ticket {
+  background: #3498db;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-ticket:hover {
+  background: #2980b9;
+}
+
+.toggle-button {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .stats-bar {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .btn-ticket {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+
+  .main-content.with-sidebar {
+    margin-left: 0; /* sidebar se oculta en móviles */
+  }
+}

@@ -56,29 +56,41 @@ function TaskForm() {
         placeholder={t('taskForm.title')}
         required
       />
-      <input
+
+      {/* Select de categorías */}
+      <select
         name="category"
         value={form.category}
         onChange={handleChange}
-        placeholder={t('taskForm.category')}
-      />
+        required
+      >
+        <option value="">{t('taskForm.select_category')}</option>
+        <option value="error_tecnico">{t('taskForm.category_error')}</option>
+        <option value="sugerencia">{t('taskForm.category_suggestion')}</option>
+        <option value="mejora">{t('taskForm.category_improvement')}</option>
+        <option value="consulta">{t('taskForm.category_question')}</option>
+      </select>
+
       <textarea
         name="description"
         value={form.description}
         onChange={handleChange}
         placeholder={t('taskForm.description')}
       />
+
       <select name="priority" value={form.priority} onChange={handleChange}>
         <option value="baja">{t('taskForm.priority_low')}</option>
         <option value="media">{t('taskForm.priority_medium')}</option>
         <option value="alta">{t('taskForm.priority_high')}</option>
       </select>
+
       <input
         type="date"
         name="dueDate"
         value={form.dueDate}
         onChange={handleChange}
       />
+
       <button type="submit">{t('taskForm.submit')}</button>
     </form>
   );

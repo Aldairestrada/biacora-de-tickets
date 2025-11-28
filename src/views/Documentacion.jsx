@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Sidebar from '../components/Sidebar';
 import './Documentacion.css';
 import { jsPDF } from 'jspdf';
@@ -6,6 +7,17 @@ import { useTranslation } from 'react-i18next';
 
 function Documentacion() {
   const { t } = useTranslation();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth > 768);
+
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSidebarOpen(window.innerWidth > 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const generarGuiaPDF = () => {
     applyPlugin(jsPDF);
@@ -38,8 +50,15 @@ function Documentacion() {
 
   return (
     <div className="dashboard-container">
-      <Sidebar />
-      <main className="main-content">
+      {window.innerWidth <= 768 && (
+        <button className="toggle-button" onClick={toggleSidebar}>
+          ☰
+        </button>
+      )}
+
+      {isSidebarOpen && <Sidebar />}
+
+      <main className={`main-content ${isSidebarOpen ? 'with-sidebar' : 'full-width'}`}>
         <h2 className="doc-title">{t('documentation.title')}</h2>
 
         <section className="doc-section">

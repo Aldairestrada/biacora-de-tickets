@@ -106,16 +106,22 @@
   "tableHeaderDescription": "Descripción"
 },
 
-"taskForm": {
-    "title": "Título",
-    "category": "Categoría",
+
+  "taskForm": {
+    "title": "Título del ticket",
     "description": "Descripción",
     "priority_low": "Baja",
     "priority_medium": "Media",
     "priority_high": "Alta",
-    "submit": "Agregar Ticket",
-    "error": "Error al guardar la tarea:"
+    "submit": "Enviar",
+    "error": "Error al enviar el ticket",
+    "select_category": "Selecciona una categoría",
+    "category_error": "Error técnico",
+    "category_suggestion": "Sugerencia",
+    "category_improvement": "Solicitud de mejora",
+    "category_question": "Consulta / duda de uso"
   },
+
 
   "seguimiento": {
     
