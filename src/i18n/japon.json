@@ -104,15 +104,20 @@
     "tableHeaderDescription": "説明"
   },
 
+ 
   "taskForm": {
-    "title": "タイトル",
-    "category": "カテゴリ",
+    "title": "チケットのタイトル",
     "description": "説明",
     "priority_low": "低",
     "priority_medium": "中",
     "priority_high": "高",
-    "submit": "チケットを追加",
-    "error": "タスク保存時のエラー："
+    "submit": "送信",
+    "error": "チケットの送信中にエラーが発生しました",
+    "select_category": "カテゴリーを選択",
+    "category_error": "技術的なエラー",
+    "category_suggestion": "提案",
+    "category_improvement": "改善の依頼",
+    "category_question": "質問／使用に関する疑問"
   },
 
   "seguimiento": {

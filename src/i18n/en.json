@@ -102,15 +102,20 @@
 },
 
 
+ 
   "taskForm": {
-    "title": "Title",
-    "category": "Category",
+    "title": "Ticket title",
     "description": "Description",
     "priority_low": "Low",
     "priority_medium": "Medium",
     "priority_high": "High",
-    "submit": "Add Ticket",
-    "error": "Error saving the task:"
+    "submit": "Submit",
+    "error": "Error submitting ticket",
+    "select_category": "Select a category",
+    "category_error": "Technical error",
+    "category_suggestion": "Suggestion",
+    "category_improvement": "Improvement request",
+    "category_question": "Question / usage doubt"
   },
 
 "seguimiento": {

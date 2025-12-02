@@ -61,6 +61,14 @@ function Dashboard() {
       ? tasks.filter(task => task.status === status).length
       : 0;
 
+  // 🔑 Definimos las categorías
+  const categories = [
+    { key: 'error_tecnico', label: 'Error técnico' },
+    { key: 'sugerencia', label: 'Sugerencia' },
+    { key: 'mejora', label: 'Solicitud de mejora' },
+    { key: 'consulta', label: 'Consulta / duda de uso' }
+  ];
+
   return (
     <div className="dashboard-container">
       {window.innerWidth <= 768 && (
@@ -80,57 +88,69 @@ function Dashboard() {
 
         <section className="table-section">
           <h2>{t('dashboard.ticketList')}</h2>
-          <div className="table-responsive">
-            <table className="task-table">
-              <thead>
-                <tr>
-                  <th>{t('dashboard.description')}</th>
-                  <th>{t('dashboard.priority')}</th>
-                  <th>{t('dashboard.dueDate')}</th>
-                  <th>{t('dashboard.status')}</th>
-                  <th>{t('dashboard.actions')}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {Array.isArray(tasks) && tasks.map(task => (
-                  <tr key={task.id}>
-                    <td>
-                      <CategoryBadge category={task.category || t('dashboard.general')} />
-                      {task.title}
-                    </td>
-                    <td style={{
-                      color:
-                        task.priority === 'alta' ? '#e74c3c' :
-                        task.priority === 'media' ? '#f39c12' :
-                        '#27ae60',
-                      fontWeight: 'bold'
-                    }}>
-                      {t('dashboard.priority_' + task.priority)}
-                    </td>
-                    <td>{task.dueDate || '—'}</td>
-                    <td>
-                      <select
-                        value={task.status}
-                        onChange={e => handleStatusChange(task.id, e.target.value)}
-                      >
-                        <option value="pendiente">{t('dashboard.pending')}</option>
-                        <option value="proceso">{t('dashboard.inProgress')}</option>
-                        <option value="resuelto">{t('dashboard.resolved')}</option>
-                      </select>
-                    </td>
-                    <td>
-                      <button
-                        className="btn-ticket"
-                        onClick={() => generarPDFTicket(task)}
-                      >
-                        📄 {t('dashboard.generatePDF')}
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+
+          {/* 🔑 Renderizamos una tabla por cada categoría */}
+          {categories.map(cat => {
+            const filteredTasks = tasks.filter(task => task.category === cat.key);
+            return (
+              <div key={cat.key} className="category-block">
+                <h3>{cat.label}</h3>
+                {filteredTasks.length > 0 ? (
+                  <table className="task-table">
+                    <thead>
+                      <tr>
+                        <th>{t('dashboard.description')}</th>
+                        <th>{t('dashboard.priority')}</th>
+                        <th>{t('dashboard.dueDate')}</th>
+                        <th>{t('dashboard.status')}</th>
+                        <th>{t('dashboard.actions')}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {filteredTasks.map(task => (
+                        <tr key={task.id}>
+                          <td>
+                            <CategoryBadge category={task.category || t('dashboard.general')} />
+                            {task.title}
+                          </td>
+                          <td style={{
+                            color:
+                              task.priority === 'alta' ? '#e74c3c' :
+                              task.priority === 'media' ? '#f39c12' :
+                              '#27ae60',
+                            fontWeight: 'bold'
+                          }}>
+                            {t('dashboard.priority_' + task.priority)}
+                          </td>
+                          <td>{task.dueDate || '—'}</td>
+                          <td>
+                            <select
+                              value={task.status}
+                              onChange={e => handleStatusChange(task.id, e.target.value)}
+                            >
+                              <option value="pendiente">{t('dashboard.pending')}</option>
+                              <option value="proceso">{t('dashboard.inProgress')}</option>
+                              <option value="resuelto">{t('dashboard.resolved')}</option>
+                            </select>
+                          </td>
+                          <td>
+                            <button
+                              className="btn-ticket"
+                              onClick={() => generarPDFTicket(task)}
+                            >
+                              📄 {t('dashboard.generatePDF')}
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                ) : (
+                  <p>No hay tickets en esta categoría.</p>
+                )}
+              </div>
+            );
+          })}
 
           {tasks.length > 0 && (
             <div className="map-section">

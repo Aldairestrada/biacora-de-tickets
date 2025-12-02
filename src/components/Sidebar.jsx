@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Sidebar.css';
-import logo from '../assets/logo sistema_tickets.png'; // Ajusta la ruta si es necesario
+import logo from '../assets/logo_tickets.png'; // Ajusta la ruta si es necesario
 
 function Sidebar({ className = 'sidebar' }) {
   const { t } = useTranslation();
